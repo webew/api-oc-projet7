@@ -1,0 +1,30 @@
+# Data
+numpy
+pandas
+
+# Visualisation
+matplotlib
+seaborn
+
+# Machine Learning
+scikit-learn
+imbalanced-learn
+lightgbm
+
+# Interprétabilité
+shap
+
+# Tracking / MLOps
+mlflow
+
+# Notebooks
+jupyter
+ipykernel
+
+# API / déploiement (pour plus tard)
+fastapi
+uvicorn
+
+# Tests / qualité
+pytest
+flake8

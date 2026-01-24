@@ -1,0 +1,28 @@
+# Environnements virtuels
+venv/
+.env/
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Jupyter
+.ipynb_checkpoints/
+
+# Données
+data/raw/
+data/processed/
+
+# Modèles et artefacts lourds
+artifacts/*.joblib
+artifacts/*.pkl
+mlruns/
+
+# Logs
+*.log
+
+# OS
+.DS_Store
+Thumbs.db
