@@ -15,5 +15,8 @@ python -m ipykernel install --user --name=projet7 --display-name "Python (Projet
 ```bash
 git init
 git status
-
+git add .
+git commit -m"Initialisation projet"
+git remote add origin https://github.com/webew/api-oc-projet7.git
+git push -u origin main
 ```
