@@ -19,8 +19,10 @@ data/processed/
 artifacts/*.joblib
 artifacts/*.pkl
 mlruns/
+notebooks/mlruns/
+mlartifacts/
 
-# Logs
+# Logs# MLfl
 *.log
 
 # OS
