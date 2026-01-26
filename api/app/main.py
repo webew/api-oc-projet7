@@ -21,3 +21,4 @@ def predict(payload: PredictRequest, threshold: float = Query(0.5, ge=0.0, le=1.
         threshold=threshold,
         top_features=[],
     )
+    
