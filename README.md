@@ -3,8 +3,13 @@
 ## Création du projet
 
 ```bash
+#(Mac)
 python3 -m venv venv
 source venv/bin/activate
+#(Windows)
+python -m venv venv
+venv\Scripts\activate
+
 pip install --upgrade pip
 pip install -r requirements.txt
 python -m ipykernel install --user --name=projet7 --display-name "Python (Projet 7)"
@@ -20,3 +25,6 @@ git commit -m"Initialisation projet"
 git remote add origin https://github.com/webew/api-oc-projet7.git
 git push -u origin main
 ```
+
+# MLFlow
+
