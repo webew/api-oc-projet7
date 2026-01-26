@@ -7,7 +7,7 @@ app = FastAPI(title="OC Projet 7 - API", version="0.1.0")
 
 @app.get("/health")
 def health():
-    return {"status": "okay"}
+    return {"status": "ok"}
 
 @app.post("/v1/predict", response_model=PredictResponse)
 def predict(payload: PredictRequest, threshold: float = Query(0.5, ge=0.0, le=1.0)):
