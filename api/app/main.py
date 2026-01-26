@@ -4,7 +4,6 @@ from app.model_service import predict_from_features
 
 app = FastAPI(title="OC Projet 7 - API", version="0.1.0")
 
-
 @app.get("/health")
 def health():
     return {"status": "ok"}
