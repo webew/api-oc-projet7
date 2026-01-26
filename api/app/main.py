@@ -1,5 +1,6 @@
-from fastapi import FastAPI, Query
+from fastapi import FastAPI, Query, HTTPException
 from app.schemas import PredictRequest, PredictResponse
+from app.model_service import predict_from_features
 
 app = FastAPI(title="OC Projet 7 - API", version="0.1.0")
 
@@ -10,9 +11,10 @@ def health():
 
 @app.post("/v1/predict", response_model=PredictResponse)
 def predict(payload: PredictRequest, threshold: float = Query(0.5, ge=0.0, le=1.0)):
-    # Dummy predictor (placeholder) : proba fixe, juste pour valider le pipeline API+tests+CI.
-    proba_default = 0.42
-    approved = proba_default < threshold
+    try:
+        approved, proba_default = predict_from_features(payload.features, threshold=threshold)
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=f"Model inference failed: {e}")
 
     return PredictResponse(
         approved=approved,
