@@ -28,3 +28,6 @@ uvicorn
 # Tests / qualité
 pytest
 flake8
+
+# Data Drift
+evidently
