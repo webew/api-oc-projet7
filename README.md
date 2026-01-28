@@ -26,5 +26,16 @@ git remote add origin https://github.com/webew/api-oc-projet7.git
 git push -u origin main
 ```
 
-# MLFlow
+## MLFlow
 
+Dans un terminal, exécuter :
+
+```bash
+mlflow ui
+```
+
+Puis accéder à ['MLFLOW'](localhost:5000).
+
+## Data drift
+
+Exécuter le fichier artifacts/data_drift_report.
