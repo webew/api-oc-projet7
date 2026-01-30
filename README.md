@@ -36,6 +36,13 @@ mlflow ui
 
 Puis accéder à ['MLFLOW'](localhost:5000).
 
+
+## Api
+
+```bash
+
+```
+
 ## Data drift
 
 Exécuter le fichier artifacts/data_drift_report.
