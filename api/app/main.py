@@ -1,6 +1,6 @@
 from fastapi import FastAPI, Query, HTTPException
-from app.schemas import PredictRequest, PredictResponse
-from app.model_service import predict_from_features
+from api.app.schemas import PredictRequest, PredictResponse
+from api.app.model_service import predict_from_features
 
 app = FastAPI(title="OC Projet 7 - API", version="0.1.0")
 
