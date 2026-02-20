@@ -20,4 +20,3 @@ def predict(payload: PredictRequest): # payload = format du payload de la requet
         probability=proba_default,
         threshold=threshold
     )
-    
