@@ -32,5 +32,6 @@ Thumbs.db
 # API
 # on ignore tout ce que MLflow exporte...
 api/models/*
-# ...sauf le modèle
+# ...sauf le modèle et l'export json
 !api/models/model.pkl
+!api/models/export_data.json
