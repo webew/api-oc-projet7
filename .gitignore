@@ -28,3 +28,9 @@ mlartifacts/
 # OS
 .DS_Store
 Thumbs.db
+
+# API
+# on ignore tout ce que MLflow exporte...
+api/models/*
+# ...sauf le modèle
+!api/models/model.pkl

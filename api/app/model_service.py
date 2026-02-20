@@ -3,13 +3,19 @@ import joblib
 import pandas as pd
 from pathlib import Path
 from typing import Dict, Any, Tuple
+import json
 
 # Dossier api/ (stable, même si on lance pytest depuis ailleurs)
 API_DIR = Path(__file__).resolve().parents[1]  # .../api
-DEFAULT_MODEL_PATH = API_DIR / "models" / "model.pkl"
+MODEL_PATH = API_DIR / "models" / "model.pkl"
+# MODEL_PATH = Path(os.getenv("MODEL_PATH", str(DEFAULT_MODEL_PATH)))
 
-MODEL_PATH = Path(os.getenv("MODEL_PATH", str(DEFAULT_MODEL_PATH)))
-DEFAULT_THRESHOLD = float(os.getenv("THRESHOLD", "0.5"))
+# Récupération du seuil métier
+EXPORT_DATA_FILE = API_DIR / "models" / "export_data.json"
+# Lecture du seuil métier depuis le fichier
+with open(EXPORT_DATA_FILE, "r") as f:
+    threshold_data = json.load(f)
+    THRESHOLD = float(threshold_data["threshold"])
 
 _model = None
 
@@ -21,7 +27,7 @@ def get_model():
     return _model
 
 
-def predict_from_features(features: Dict[str, Any], threshold: float = DEFAULT_THRESHOLD) -> Tuple[bool, float]:
+def predict_from_features(features: Dict[str, Any], threshold: float = THRESHOLD) -> Tuple[bool, float]:
     model = get_model()
 
     if hasattr(model, "feature_names_in_"):

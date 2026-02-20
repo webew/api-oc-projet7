@@ -1,4 +1,4 @@
-from fastapi import FastAPI, Query, HTTPException
+from fastapi import FastAPI, HTTPException
 from api.app.schemas import PredictRequest, PredictResponse
 from api.app.model_service import predict_from_features
 
@@ -9,7 +9,7 @@ def health():
     return {"status": "ok"}
 
 @app.post("/v1/predict", response_model=PredictResponse)
-def predict(payload: PredictRequest, threshold: float = Query(0.5, ge=0.0, le=1.0)):
+def predict(payload: PredictRequest, threshold: float):
     try:
         approved, proba_default = predict_from_features(payload.features, threshold=threshold)
     except Exception as e:
