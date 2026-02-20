@@ -54,4 +54,20 @@ pytest -v
 
 ## Data drift
 
-Exécuter le fichier artifacts/data_drift_report.html.
+Exécuter le fichier data_drift_report.html situé à la racine du projet.
+
+# URL Github du projet
+
+[projet sur Github](https://github.com/webew/api-oc-projet7)
+
+# API
+
+## URL de l'api déployée
+
+[Api](https://api-oc-projet7.onrender.com/docs)
+
+## Structure des dossiers
+
+- app : code de l'api
+- models : le modèle issue de la modélisation du notebook *notebook_scoring_model.ipynb*
+- tests : tests unitaires
