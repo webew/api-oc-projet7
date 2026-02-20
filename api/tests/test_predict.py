@@ -6,14 +6,14 @@ client = TestClient(app)
 
 def test_predict_schema_and_values():
     payload = {"features": {"DAYS_BIRTH": -12000, "EXT_SOURCE_2": 0.2}}
-    r = client.post("/v1/predict", json=payload)
+    r = client.post("/predict", json=payload)
     print(r.status_code, r.text)
 
     assert r.status_code == 200
     data = r.json()
 
-    # assert "approved" in data
-    # assert "probability_default" in data
+    assert "approved" in data
+    assert "probability_default" in data
 
-    # assert 0.0 <= data["probability_default"] <= 1.0
+    assert 0.0 <= data["probability_default"] <= 1.0
     # assert data["threshold"] == 0.5
