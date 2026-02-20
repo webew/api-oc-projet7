@@ -13,7 +13,12 @@ def test_predict_schema_and_values():
     data = r.json()
 
     assert "approved" in data
-    assert "probability_default" in data
+    assert "probability" in data
+    assert "threshold" in data
 
-    assert 0.0 <= data["probability_default"] <= 1.0
-    # assert data["threshold"] == 0.5
+    assert 0.0 <= data["probability"] <= 1.0
+    print("Data:", data)
+    if data["approved"]:
+        assert data["probability"] < data["threshold"]
+    else:
+        assert data["probability"] >= data["threshold"]
