@@ -27,7 +27,7 @@ def get_model():
     return _model
 
 
-def predict_from_features(features: Dict[str, Any], threshold: float = THRESHOLD) -> Tuple[bool, float]:
+def predict_from_features(features: Dict[str, Any]) -> Tuple[bool, float]:
     model = get_model()
 
     if hasattr(model, "feature_names_in_"):
@@ -42,5 +42,5 @@ def predict_from_features(features: Dict[str, Any], threshold: float = THRESHOLD
         pred = model.predict(X)[0]
         proba_default = float(pred)
 
-    approved = proba_default < float(threshold)
+    approved = proba_default < float(THRESHOLD)
     return approved, proba_default

@@ -9,5 +9,4 @@ class PredictRequest(BaseModel):
 class PredictResponse(BaseModel):
     approved: bool
     probability_default: float
-    threshold: float
     top_features: Optional[List[dict]] = None

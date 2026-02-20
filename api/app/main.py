@@ -9,15 +9,14 @@ def health():
     return {"status": "ok"}
 
 @app.post("/v1/predict", response_model=PredictResponse)
-def predict(payload: PredictRequest, threshold: float):
+def predict(payload: PredictRequest):
     try:
-        approved, proba_default = predict_from_features(payload.features, threshold=threshold)
+        approved, proba_default = predict_from_features(payload.features)
     except Exception as e:
         raise HTTPException(status_code=500, detail=f"Model inference failed: {e}")
 
     return PredictResponse(
         approved=approved,
         probability_default=proba_default,
-        threshold=threshold,
         top_features=[],
     )
