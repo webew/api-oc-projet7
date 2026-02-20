@@ -1,5 +1,5 @@
 from pydantic import BaseModel
-from typing import Any, Dict, List, Optional
+from typing import Any, Dict
 
 
 class PredictRequest(BaseModel):
@@ -9,4 +9,3 @@ class PredictRequest(BaseModel):
 class PredictResponse(BaseModel):
     approved: bool
     probability_default: float
-    top_features: Optional[List[dict]] = None
