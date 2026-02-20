@@ -8,4 +8,5 @@ class PredictRequest(BaseModel):
 
 class PredictResponse(BaseModel):
     approved: bool
-    probability_default: float
+    probability: float
+    threshold: float

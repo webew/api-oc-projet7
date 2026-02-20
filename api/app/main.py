@@ -11,11 +11,12 @@ def health():
 @app.post("/predict", response_model=PredictResponse) # response_model = format de la reponse (défini dans Schemas.py)
 def predict(payload: PredictRequest): # payload = format du payload de la requete
     try:
-        approved, proba_default = predict_from_features(payload.features)
+        approved, proba_default, threshold = predict_from_features(payload.features)
     except Exception as e:
         raise HTTPException(status_code=500, detail=f"Model inference failed: {e}")
 
     return PredictResponse(
         approved=approved,
-        probability_default=proba_default,
+        probability=proba_default,
+        threshold=threshold
     )

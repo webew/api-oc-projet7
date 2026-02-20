@@ -35,4 +35,4 @@ def predict_from_features(features: Dict[str, Any]) -> Tuple[bool, float]:
         pred = float(model.predict(X)[0])
 
     approved = proba_default < float(THRESHOLD)
-    return approved, proba_default
+    return approved, proba_default, THRESHOLD
