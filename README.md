@@ -69,5 +69,5 @@ Exécuter le fichier data_drift_report.html situé à la racine du projet.
 ## Structure des dossiers
 
 - app : code de l'api
-- models : le modèle issue de la modélisation du notebook *notebook_scoring_model.ipynb*
+- models : le modèle issue de la modélisation du notebook *Fillion_Bertrand_2_notebook_modelisation_022026.ipynb*
 - tests : tests unitaires
