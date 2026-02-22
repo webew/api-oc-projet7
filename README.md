@@ -62,6 +62,8 @@ Exécuter le fichier data_drift_report.html situé à la racine du projet.
 
 # API
 
+> L'api permet, connaissant l'identifiant d'un client, de déterminer si ce client est susceptible de faire défaut ou non.
+
 ## URL de l'api déployée
 
 [Api](https://api-oc-projet7.onrender.com/docs)
