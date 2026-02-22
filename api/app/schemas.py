@@ -3,8 +3,10 @@ from typing import Any, Dict
 
 
 class PredictRequest(BaseModel):
-    features: Dict[str, Any]
+    sk_id_curr: int
 
+# class PredictRequest(BaseModel):
+#     features: Dict[str, Any]
 
 class PredictResponse(BaseModel):
     approved: bool
