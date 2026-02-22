@@ -32,7 +32,7 @@ def predict_from_features(features: Dict[str, Any]) -> Tuple[bool, float]:
     if hasattr(model, "predict_proba"):
         proba_default = float(model.predict_proba(X)[0][1])
     else:
-        pred = float(model.predict(X)[0])
+        proba_default = float(model.predict(X)[0])
 
     approved = proba_default < float(THRESHOLD)
     return approved, proba_default, THRESHOLD
