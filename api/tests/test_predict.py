@@ -8,11 +8,10 @@ from api.app.model_service import predict_from_id
 client = TestClient(app)
 
 API_DIR = Path(__file__).resolve().parents[1]
-DATA_DIR = Path(__file__).resolve().parents[2] / "data" / "raw"
 
 def test_predict_schema_and_values():
-    df = pd.read_csv(DATA_DIR / "application_test.csv")
-    sk_id = int(df["SK_ID_CURR"].iloc[0])
+    store = pd.read_parquet(API_DIR / "models" / "features_store.parquet")
+    sk_id = int(store["SK_ID_CURR"].iloc[0])
 
     r = client.post("/predict", json={"sk_id_curr": sk_id})
     print(r.status_code, r.text)
@@ -34,8 +33,8 @@ def test_predict_from_application_test():
     with open(API_DIR / "models" / "export_data.json") as f:
         threshold = float(json.load(f)["threshold"])
 
-    df = pd.read_csv(DATA_DIR / "application_test.csv")
-    sk_id = int(df["SK_ID_CURR"].iloc[0])
+    store = pd.read_parquet(API_DIR / "models" / "features_store.parquet")
+    sk_id = int(store["SK_ID_CURR"].iloc[0])
 
     approved, proba_default, returned_threshold = predict_from_id(sk_id)
 

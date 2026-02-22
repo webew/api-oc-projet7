@@ -35,3 +35,4 @@ api/models/*
 # ...sauf le modèle et l'export json
 !api/models/model.pkl
 !api/models/export_data.json
+!api/models/features_store.parquet
