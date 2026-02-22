@@ -31,13 +31,3 @@ jobs:
               working-directory: api
               run: |
                   pytest -q
-
-    deploy:
-        runs-on: ubuntu-latest
-        needs: test-api
-        if: github.event_name == 'push'
-
-        steps:
-            - name: Trigger Render deploy
-              run: |
-                  curl -X POST ${{ secrets.RENDER_DEPLOY_HOOK_URL }}
