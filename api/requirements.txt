@@ -7,3 +7,4 @@ joblib
 pandas
 lightgbm
 imbalanced-learn
+pyarrow
