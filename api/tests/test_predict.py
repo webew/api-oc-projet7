@@ -9,6 +9,7 @@ client = TestClient(app)
 
 API_DIR = Path(__file__).resolve().parents[1]
 
+# test du endpoint /predict
 def test_predict_schema_and_values():
     store = pd.read_parquet(API_DIR / "models" / "features_store.parquet")
     sk_id = int(store["SK_ID_CURR"].iloc[0])
@@ -29,6 +30,7 @@ def test_predict_schema_and_values():
     else:
         assert data["probability"] >= data["threshold"]
 
+# test de la fonction predict_from_id du service model_service
 def test_predict_from_application_test():
     with open(API_DIR / "models" / "export_data.json") as f:
         threshold = float(json.load(f)["threshold"])

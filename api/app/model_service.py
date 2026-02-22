@@ -20,12 +20,14 @@ def get_model():
         _model = joblib.load(MODEL_PATH)
     return _model
 
+# fichier de données de test (features issues du feature engineering)
 def get_features_store():
     global _features_store
     if _features_store is None:
         _features_store = pd.read_parquet(FEATURES_STORE_PATH)
     return _features_store
 
+# prédiction à partir des données d'un client d'après son identifiant
 def predict_from_id(sk_id_curr: int) -> Tuple[bool, float, float]:
     model = get_model()
     store = get_features_store()

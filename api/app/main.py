@@ -4,10 +4,12 @@ from api.app.model_service import predict_from_id
 
 app = FastAPI(title="OC Projet 7 - API", version="0.1.0")
 
+# health check de l'api
 @app.get("/health")
 def health():
     return {"status": "ok"}
 
+# prédiction à partir de l'identifiant d'un client
 @app.post("/predict", response_model=PredictResponse)
 def predict(payload: PredictRequest):
     try:
